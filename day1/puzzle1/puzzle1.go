@@ -10,7 +10,7 @@ import (
 
 
 func main() {
-	strs := parseInput("./example1.txt")
+	strs := parseInput("./day1/puzzle2/example.txt")
 	sums := []int{}
 
     for _, str := range strs {
