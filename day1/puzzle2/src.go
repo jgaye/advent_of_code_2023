@@ -75,14 +75,18 @@ func getSum(str string) int {
 	var a, b string
 	var c int
 
+	// Only for part 2
 	var numbersAsStr = []string{"one", "two", "three", "four", "five", "six", "seven", "eight", "nine"}
-
 	for _, nas := range numbersAsStr {
+		// For all digits as string,
+		// Inserts the digit in the string representation of the digit
+		// in a way that allows reuse of a character in different digit strings
 		str = strings.Replace(str, nas, strToStrint(nas), -1)
 	}
 
 	fmt.Println(str)
 
+	// the rest is usable for part 1 and 2
 	for _, char := range str {
 		_, err := strconv.Atoi(string(char))
 		if err == nil {
