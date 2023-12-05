@@ -245,6 +245,7 @@ func part2(fileLines []string) {
 	wg.Wait()
 	fmt.Println("min locations", minLocs)
 	fmt.Println("final result", min(minLocs))
+	fmt.Println("but the real answer is", min(minLocs) -1)
 }
 
 func main() {
