@@ -84,7 +84,7 @@ func TestExpandUniverse(t *testing.T) {
 		{8, 7},
 		{9, 0},
 		{9, 4}}
-	expandedUniverse := expandUniverse(9, 9, galaxies)
+	expandedUniverse := expandUniverse(9, 9, galaxies, 1)
 	slices.SortFunc(expandedUniverse, xComparison)
 	slices.SortFunc(expandedUniverse, yComparison)
 	expectedUniverse := []Galaxy{
@@ -104,8 +104,22 @@ func TestExpandUniverse(t *testing.T) {
 }
 
 func TestPart1(t *testing.T) {
-	result := part1("./example.txt")
+	result := part1("./example.txt", 1)
 	expectedResult := 374
+
+	if result != expectedResult {
+		t.Errorf("wrong result %d, expected %d", result, expectedResult)
+	}
+
+	result = part1("./example.txt", 9)
+	expectedResult = 1030
+
+	if result != expectedResult {
+		t.Errorf("wrong result %d, expected %d", result, expectedResult)
+	}
+
+	result = part1("./example.txt", 99)
+	expectedResult = 8410
 
 	if result != expectedResult {
 		t.Errorf("wrong result %d, expected %d", result, expectedResult)

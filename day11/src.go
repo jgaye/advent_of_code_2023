@@ -132,12 +132,11 @@ func expandUniverse(maxY int, maxX int, galaxies []Galaxy, expansionRate int) []
 
 // END HELPERS
 
-func part1(filePath string) int {
+func part1(filePath string, expansionRate int) int {
 	startTime := time.Now()
 	result := 0
 	maxY, maxX, galaxies := parseFile(filePath)
 
-	expansionRate := 1
 	expandedUniverse := expandUniverse(maxY, maxX, galaxies, expansionRate)
 	fmt.Println("expandedUniverse: ", expandedUniverse)
 
@@ -153,18 +152,29 @@ func part1(filePath string) int {
 	return result
 }
 
-func part2(filePath string) int {
-	startTime := time.Now()
-	result := 0
+// func part2(filePath string) int {
+// 	startTime := time.Now()
+// 	result := 0
+// 	maxY, maxX, galaxies := parseFile(filePath)
 
-	fmt.Println("Part 2 result: ", result)
-	fmt.Println("Part 2 execution time: ", time.Since(startTime))
+// 	expansionRate := 1_000_000
+// 	expandedUniverse := expandUniverse(maxY, maxX, galaxies, expansionRate)
+// 	fmt.Println("expandedUniverse: ", expandedUniverse)
 
-	return result
-}
+// 	for i := 0; i < len(expandedUniverse); i++ {
+// 		for j := i + 1; j < len(expandedUniverse); j++ {
+// 			result += expandedUniverse[i].Distance(expandedUniverse[j])
+// 		}
+// 	}
+
+// 	fmt.Println("Part 2 result: ", result)
+// 	fmt.Println("Part 2 execution time: ", time.Since(startTime))
+
+// 	return result
+// }
 
 func main() {
 	filePath := "./input.txt"
-	part1(filePath)
-	part2(filePath)
+	part1(filePath, 999_999)
+	// part2(filePath)
 }
